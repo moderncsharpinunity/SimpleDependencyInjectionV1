@@ -11,9 +11,9 @@ namespace Example
     public class ExampleDependenciesContext : MonoBehaviour
     {
         [SerializeField]
-        private ExampleDependencyMonoBehaviour exampleDependency;
+        private ExampleDependencyMonoBehaviour exampleDependency = default;
         [SerializeField]
-        private ExampleDependencyNested exampleDependencyNested;
+        private ExampleDependencyNested exampleDependencyNested = default;
 
         private void Awake()
         {

@@ -7,7 +7,7 @@ namespace Example
 {
     public class ExampleDependencyMonoBehaviour : MonoBehaviour
     {
-        private ExampleDependencyNested dependencyNested;
+        private ExampleDependencyNested dependencyNested = default;
 
         private void Awake()
         {

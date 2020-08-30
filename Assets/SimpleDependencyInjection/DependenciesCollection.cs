@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace SimpleDependencyInjection
 {
-    public class DependenciesCollection : IEnumerable<Dependency>
+    public class DependenciesCollection
     {
         private Dictionary<Type, Dependency> dependencies = new Dictionary<Type, Dependency>();
 
@@ -38,9 +38,5 @@ namespace SimpleDependencyInjection
         {
             return (T)Get(typeof(T));
         }
-
-        public IEnumerator<Dependency> GetEnumerator() => dependencies.Values.GetEnumerator();
-
-        IEnumerator IEnumerable.GetEnumerator() => dependencies.Values.GetEnumerator();
     }
 }
