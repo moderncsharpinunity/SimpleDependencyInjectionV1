@@ -17,7 +17,7 @@ namespace Example
 
         private void Awake()
         {
-            DependenciesContext.Dependencies.Add(new Dependency { Type = typeof(ExampleDependencyMonoBehaviour), Instance = exampleDependency, IsSingleton = true });
+            DependenciesContext.Dependencies.Add(new Dependency { Type = typeof(ExampleDependencyMonoBehaviour), Factory = () => exampleDependency, IsSingleton = true });
 
             DependenciesContext.Dependencies.Add(new Dependency { Type = typeof(ExampleDependencyPlainClass), Factory = () => new ExampleDependencyPlainClass(), IsSingleton = false });
 

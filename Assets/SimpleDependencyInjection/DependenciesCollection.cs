@@ -8,6 +8,7 @@ namespace SimpleDependencyInjection
     public class DependenciesCollection
     {
         private Dictionary<Type, Dependency> dependencies = new Dictionary<Type, Dependency>();
+        private Dictionary<Type, object> singletons = new Dictionary<Type, object>();
 
         public void Add(Dependency dependency) => dependencies.Add(dependency.Type, dependency);
 
@@ -21,12 +22,11 @@ namespace SimpleDependencyInjection
             var dependency = dependencies[type];
             if (dependency.IsSingleton)
             {
-                if (dependency.Instance == null)
+                if (!singletons.ContainsKey(type))
                 {
-                    dependency.Instance = dependency.Factory();
-                    dependencies[type] = dependency;
+                    singletons.Add(type, dependency.Factory());
                 }
-                return dependency.Instance;
+                return singletons[type];
             }
             else
             {
